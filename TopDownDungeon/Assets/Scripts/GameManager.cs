@@ -7,8 +7,8 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    //[Header("TEMP")]
-    //public bool resetStats = false;
+    [Header("TEMP")]
+    public bool resetStats = false;
     public static GameManager instance;
     private void Awake()
     {
@@ -18,10 +18,10 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-       // if (resetStats == true)
-        //{
-          //  PlayerPrefs.DeleteAll();
-        //}
+       if (resetStats == true)
+        {
+            PlayerPrefs.DeleteAll();
+        }
 
 
         instance = this;
