@@ -12,7 +12,7 @@ public class CameraMotor : MonoBehaviour
 
     private void Start()
     {
-        lookAt = GameObject.Find("player_0").transform;
+        lookAt = GameObject.Find("Player").transform;
     }
 
     private void LateUpdate()
