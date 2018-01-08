@@ -85,7 +85,7 @@ public class Enemy : Mover
     {
        
         Destroy(gameObject);
-        GameManager.instance.experence += XPValue;
+        GameManager.instance.GrantXP(XPValue);
         GameManager.instance.ShowText("+" + XPValue + "xp", 30, Color.magenta, transform.position, Vector3.up * 40, 1.0f);
     }
 

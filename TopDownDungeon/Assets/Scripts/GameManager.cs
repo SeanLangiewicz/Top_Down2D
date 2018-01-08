@@ -12,15 +12,18 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     private void Awake()
     {
+        //PlayerPrefs.DeleteAll();
         if (GameManager.instance != null)
         {
             Destroy(gameObject);
+            Destroy(player.gameObject);
+            Destroy(floatingTextManager.gameObject);
             return;
         }
 
-       if (resetStats == true)
+        if (resetStats == true)
         {
-            PlayerPrefs.DeleteAll();
+
         }
 
 
@@ -30,9 +33,10 @@ public class GameManager : MonoBehaviour
 
     }
 
-   
 
- 
+
+
+
     //Resource management
     public List<Sprite> playerSprites;
     public List<Sprite> weaponSprites;
@@ -41,7 +45,7 @@ public class GameManager : MonoBehaviour
 
     //References
     public Player player;
-    //public Weapon weapon..
+    public Weapon weapon;
 
     public FloatingTextManager floatingTextManager;
 
@@ -49,9 +53,76 @@ public class GameManager : MonoBehaviour
     public int gold;
     public int experence;
 
-    public void ShowText(string msg,int fontSize,Color color, Vector3 position, Vector3 motion, float duration)
+    public void ShowText(string msg, int fontSize, Color color, Vector3 position, Vector3 motion, float duration)
     {
         floatingTextManager.Show(msg, fontSize, color, position, motion, duration);
+    }
+
+
+    //Upgrade Weapon
+    public bool TryUpgradeWeapon()
+    {
+        // is the weapon maxed ?
+        if (weaponPrices.Count <= weapon.weaponlevel)
+        {
+            return false;
+        }
+        if (gold >= weaponPrices[weapon.weaponlevel])
+        {
+            gold -= weaponPrices[weapon.weaponlevel];
+            weapon.UpgradeWeapon();
+            return true;
+        }
+
+        return false;
+    }
+
+    //Experience
+    public int GetCurrentLevel()
+    {
+        int r = 0;
+        int add = 0;
+
+        while (experence >= add)
+        {
+            add += xpTable[r];
+            r++;
+
+            // Max Level
+            if (r == xpTable.Count)
+            {
+                return r;
+            }
+        }
+
+        return r;
+    }
+
+    public int GetXPToLevel(int level)
+    {
+        int r = 0;
+        int xp = 0;
+
+        while (r < level)
+        {
+            xp += xpTable[r];
+            r++;
+        }
+        return xp;
+    }
+
+    public void GrantXP(int xp)
+    {
+        int currLevel = GetCurrentLevel();
+        experence += xp;
+        if (currLevel < GetCurrentLevel())
+            OnLevelUP();
+    }
+
+    public void OnLevelUP()
+    {
+        Debug.Log("level up");
+        player.OnLevelUP();
     }
 
     //Save State
@@ -71,7 +142,7 @@ public class GameManager : MonoBehaviour
         s += "0" + "|";
         s += gold.ToString() + "|";
         s += experence.ToString() + "|";
-        s += "0";
+        s += weapon.weaponlevel.ToString();
 
         PlayerPrefs.SetString("SaveState", s);
     }
@@ -85,10 +156,22 @@ public class GameManager : MonoBehaviour
         string[] data = PlayerPrefs.GetString("SaveState").Split('|');
         // Change Player Skin
         gold = int.Parse(data[1]);
+
+        //Experience
         experence = int.Parse(data[2]);
+        if (GetCurrentLevel() !=0)
+        {
+            player.SetLevel(GetCurrentLevel());
+        }
+        
+
         // Change weapon level
+        weapon.SetWeaponLevel( int.Parse(data[3]));
+       
 
         Debug.Log("Load State");
+
+        player.transform.position = GameObject.Find("SpawnPoint").transform.position;
     }
 }
 

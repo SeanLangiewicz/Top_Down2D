@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 96fb32fb372773d4395681b8e721f460
-timeCreated: 1515370775
+timeCreated: 1515385352
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -67,6 +67,7 @@ TextureImporter:
     21300120: weapon_6
     21300122: weapon_7
     21300124: Enemy_0
+    21300126: Menu_0
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -109,7 +110,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 93
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -1037,6 +1038,20 @@ TextureImporter:
         x: 16
         y: 96
         width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Menu_0
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 64
+        width: 15
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
