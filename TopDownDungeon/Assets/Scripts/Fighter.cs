@@ -8,6 +8,7 @@ public class Fighter : MonoBehaviour
     public int hitPoint = 10;
     public int maxHitPoint = 10;
     public float pushRecoverySpeed = 0.2f;
+   
 
     //Immunity
     protected float immuneTime = 1.0f;
@@ -15,6 +16,11 @@ public class Fighter : MonoBehaviour
 
     //Push
     protected Vector3 pushDirection;
+
+
+    //Floating Text Timer
+    [Header("Floating Text Timer")]
+    public float messageTime = 5f;
 
     //All Fighters can receive damage and Die
     protected virtual void ReceiveDamage(Damage dmg)
@@ -26,7 +32,7 @@ public class Fighter : MonoBehaviour
             hitPoint -= dmg.damageAmount;
             pushDirection = (transform.position - dmg.origin).normalized * dmg.pushForce;
 
-            GameManager.instance.ShowText(dmg.damageAmount.ToString(), 45, Color.red, transform.position, Vector3.zero, 3f);
+            GameManager.instance.ShowText(dmg.damageAmount.ToString()+" Damge", 45, Color.red, transform.position, Vector3.zero, messageTime);
 
             if (hitPoint <=0)
             {

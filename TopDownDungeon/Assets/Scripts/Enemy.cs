@@ -14,6 +14,7 @@ public class Enemy : Mover
     private bool isCollidingWithPlayer;
     private Transform playerTransform;
     private Vector3 startingPosition;
+    
 
     //Hitbox
     public ContactFilter2D filter;
@@ -86,7 +87,7 @@ public class Enemy : Mover
        
         Destroy(gameObject);
         GameManager.instance.GrantXP(XPValue);
-        GameManager.instance.ShowText("+" + XPValue + "xp", 30, Color.magenta, transform.position, Vector3.up * 40, 1.0f);
+        GameManager.instance.ShowText("+" + XPValue + "XP", 80, Color.magenta, transform.position, Vector3.up * 40, messageTime);
     }
 
 

@@ -8,11 +8,13 @@ public abstract class Mover : Fighter
     protected BoxCollider2D boxCollider;
     private Vector3 moveDelta;
     private RaycastHit2D hit;
-    protected float ySpeed = 0.75f;
-    protected float xSpeed = 1.0f;
+    public float ySpeed = 0.75f;
+    public float xSpeed = 1.0f;
+    private Vector3 originalSize;
 
     protected virtual void Start()
     {
+        originalSize = transform.localScale;
         boxCollider = GetComponent<BoxCollider2D>();
     }
 
@@ -27,14 +29,12 @@ public abstract class Mover : Fighter
         //either syntax would work to change local scale.
         if (moveDelta.x > 0)
         {
-            transform.localScale = Vector3.one;
+            transform.localScale = originalSize;
 
         }
         else if (moveDelta.x < 0)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
-
-
+            transform.localScale = new Vector3(originalSize.z*-1,originalSize.y,originalSize.z);
         }
 
         //Add push vector, if any

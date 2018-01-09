@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: f71926c43d259b14681c8d6864dd4fe3
+timeCreated: 1515479242
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Arrows
+  fontNames:
+  - Arrows
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 7afed45aeb453224f82953c124ae9b03, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

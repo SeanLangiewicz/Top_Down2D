@@ -137,6 +137,7 @@ MonoBehaviour:
   hitPoint: 3
   maxHitPoint: 3
   pushRecoverySpeed: 0.2
+  messageTime: 15
   XPValue: 10
   triggerLength: 0.3
   chaseLength: 1
@@ -179,7 +180,7 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
-  damage: 1
+  damage: 2
   pushForce: 2
 --- !u!212 &212697627113934188
 SpriteRenderer:
@@ -213,7 +214,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1909995035
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300124, guid: 96fb32fb372773d4395681b8e721f460, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

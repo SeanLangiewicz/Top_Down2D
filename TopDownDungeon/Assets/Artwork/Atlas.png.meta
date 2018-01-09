@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 96fb32fb372773d4395681b8e721f460
-timeCreated: 1515385352
+timeCreated: 1515481276
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -68,6 +68,8 @@ TextureImporter:
     21300122: weapon_7
     21300124: Enemy_0
     21300126: Menu_0
+    21300128: Boss_0
+    21300130: enemy_1
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -1052,6 +1054,34 @@ TextureImporter:
         x: 241
         y: 64
         width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Boss_0
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 48
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemy_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 16
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
